@@ -24,4 +24,13 @@ router.post('/:id', function (req, res, next) {
     .catch(err => res.status(400).send(err))
 });
 
+router.post('/not/:id', function (req, res, next) {
+  const id = req.params.id
+  knex('todos')
+    .where('id', id)
+    .update('complete', false)
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(400).send(err))
+})
+
 module.exports = router;
