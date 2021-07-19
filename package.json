@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run start-knex && nodemon ./bin/www",
+    "start-knex": "npx knex migrate:rollback && npx knex migrate:latest && npx knex seed:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jade": "^1.11.0",
+    "knex": "^0.95.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
+    "pg": "^8.6.0"
+  }
+}
