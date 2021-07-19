@@ -9,6 +9,7 @@ const indexRouter = require('./routes/index');
 const editRouter = require('./routes/edit');
 const completeRouter = require('./routes/complete')
 const addItemRouter = require('./routes/addItem')
+const deleteItemRouter = require('./routes/delete')
 const app = express();
 
 // view engine setup
