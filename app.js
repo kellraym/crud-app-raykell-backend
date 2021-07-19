@@ -27,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/edit', editRouter);
 app.use('/complete', completeRouter);
 app.use('/additem', addItemRouter);
+add.use('/delete', deleteItemRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
