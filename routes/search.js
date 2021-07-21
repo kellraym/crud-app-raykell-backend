@@ -3,7 +3,7 @@ var router = express.Router();
 const knex = require('knex')(require('../knexfile')['production']);
 
 router.get('/', function (req, res) {
-  const name = `%${req.params.name}$`
+  const name = `%${req.query.name}$`
   console.log(name)
   knex.select('id', 'name', 'due_date', 'description')
     .from('todos')
