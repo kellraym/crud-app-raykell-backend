@@ -15,21 +15,21 @@ router.get('/', function (req, res, next) {
     )
 })
 
-router.patch('/:id', function (req, res, next) {
+router.put('/:id', function (req, res, next) {
   const id = req.params.id
   knex('todos')
     .where('id', id)
     .update('complete', true)
-    .then(data => res.status(201).send(data))
+    .then(data => res.status(202).send(data))
     .catch(err => res.status(400).send(err))
 });
 
-router.patch('/not/:id', function (req, res, next) {
+router.put('/not/:id', function (req, res, next) {
   const id = req.params.id
   knex('todos')
     .where('id', id)
     .update('complete', false)
-    .then(data => res.status(201).send(data))
+    .then(data => res.status(202).send(data))
     .catch(err => res.status(400).send(err))
 })
 
