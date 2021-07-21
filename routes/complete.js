@@ -4,7 +4,7 @@ const knex = require('knex')(require('../knexfile.js')['production']);
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  knex.select('id', 'name', 'due_date', 'description')
+  knex.select('id', 'name', 'updated_at', 'description')
     .from('todos')
     .where('complete', '=', true)
     .then(data => {
@@ -19,7 +19,10 @@ router.put('/:id', function (req, res, next) {
   const id = req.params.id
   knex('todos')
     .where('id', id)
-    .update('complete', true)
+    .update({
+      complete: true,
+      updated_at: "NOW()"
+    })
     .then(data => res.status(202).send(data))
     .catch(err => res.status(400).send(err))
 });
