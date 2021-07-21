@@ -6,6 +6,7 @@ const knex = require('knex')(require('../knexfile')['production']);
 router.get('/', function (req, res, next) {
   knex.select('id', 'name', 'due_date', 'description', 'complete')
     .from('todos')
+    .where('complete', false)
     .then(data => {
       res.status(200).json(data)
     })

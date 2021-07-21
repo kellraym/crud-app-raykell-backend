@@ -5,7 +5,6 @@ const knex = require('knex')(require('../knexfile.js')['production']);
 /* GET users listing. */
 router.post('/', function (req, res, next) {
   const { name, dueDate, description } = req.body
-  console.log(name, dueDate, description)
   knex('todos')
     .insert({
       name: name,
