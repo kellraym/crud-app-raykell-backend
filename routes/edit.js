@@ -3,8 +3,18 @@ var router = express.Router();
 const knex = require('knex')(require('../knexfile.js')['production']);
 
 /* GET users listing. */
-router.get('/edit/:id', function (req, res, next) {
-  res.send('respond with a resource');
+router.patch('/:id', function (req, res, next) {
+  const { id, name, dueDate, description } = req.body
+  console.log(name, dueDate, description)
+  knex('todos')
+    .where('id', id)
+    .update({
+      name: name,
+      due_date: dueDate,
+      description: description
+    })
+    .then(data => res.status(202).send(data))
+    .catch(err => res.status(400).send(err))
 });
 
 module.exports = router;
