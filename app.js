@@ -10,6 +10,7 @@ const editRouter = require('./routes/edit');
 const completeRouter = require('./routes/complete')
 const addItemRouter = require('./routes/addItem')
 const deleteItemRouter = require('./routes/delete')
+const searchRouter = require('./routes/search')
 const app = express();
 
 // view engine setup
@@ -28,6 +29,7 @@ app.use('/edit', editRouter);
 app.use('/complete', completeRouter);
 app.use('/additem', addItemRouter);
 app.use('/delete', deleteItemRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
