@@ -1,0 +1,1 @@
+go to https://github.com/kellraym/crud-app-raykell-frontend/blob/main/README.md for a detailed readme of this app
